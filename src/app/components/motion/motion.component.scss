@@ -1,29 +1,213 @@
+/* Estilos premium para móviles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+.motion-container {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4), 
+              inset 0 0 15px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-align: center;
+  width: 95%;
+  margin: 1rem auto;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.motion-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: rotate 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.motion-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.motion-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.motion-header p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0.5rem 0;
+}
+
+.motion-header p span {
+  font-weight: 600;
+  color: #ffd700;
+  font-size: 1.4rem;
+  display: inline-block;
+}
+
 .sensor-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  gap: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
 
+.sensor-section {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
+              inset 0 0 10px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.sensor-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3),
+              inset 0 0 15px rgba(255, 215, 0, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sensor-section h2 {
+  color: #fff;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.sensor-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+}
+
+.sensor-data {
+  display: grid;
+  gap: 1rem;
+}
+
+.sensor-data p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.sensor-data p:hover {
+  transform: scale(1.03);
+  color: #ffd700;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones mejoradas */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.motion-header p {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Efectos de carga suaves */
+.sensor-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .motion-container {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  
+  .motion-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .motion-header p {
+    font-size: 1rem;
+  }
+  
+  .motion-header p span {
+    font-size: 1.2rem;
+  }
+  
   .sensor-section {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.2rem;
+  }
+  
+  .sensor-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .sensor-data p {
+    font-size: 1rem;
+  }
+}
 
-    h2 {
-      color: #333;
-      margin-bottom: 15px;
-    }
+/* Efecto de neón para títulos importantes */
+.neon-text {
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #ff6b00;
+  animation: neon-flicker 1.5s infinite alternate;
+}
 
-    .sensor-data {
-      display: grid;
-      gap: 10px;
-
-      p {
-        margin: 0;
-        font-size: 16px;
-        color: #666;
-      }
-    }
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #ff6b00;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
   }
 }
